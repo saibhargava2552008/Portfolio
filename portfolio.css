@@ -1,0 +1,174 @@
+/* ===== General Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    color: #2d2d2d;
+    background-color: #f4f6f8;
+}
+
+/* ===== Header ===== */
+header {
+    background-color: #1f2937;
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+header button {
+    background-color: #374151;
+    border: none;
+    padding: 10px 18px;
+    margin: 0 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+header button:hover {
+    background-color: #4b5563;
+}
+
+header button a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* ===== Main Content ===== */
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+section {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 25px 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+section h1,
+section h2 {
+    color: #1f2937;
+    margin-bottom: 15px;
+}
+
+section p {
+    margin-bottom: 8px;
+}
+
+/* ===== About Section ===== */
+#About img {
+    display: block;
+    border-radius: 10px;
+    margin: 15px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Skills Section ===== */
+#Skills ol {
+    padding-left: 25px;
+}
+
+#Skills li {
+    margin-bottom: 5px;
+}
+
+/* ===== Projects Table ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #d1d5db;
+    padding: 10px 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #1f2937;
+    color: #ffffff;
+}
+
+tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+/* ===== Contact Form ===== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+form label {
+    font-weight: 500;
+    margin-right: 8px;
+}
+
+form input[type="text"],
+form input[type="email"] {
+    padding: 8px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 350px;
+}
+
+form input[type="radio"],
+form input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+form button {
+    align-self: flex-start;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+form button[type="submit"] {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+form button[type="submit"]:hover {
+    background-color: #1d4ed8;
+}
+
+form button[type="reset"] {
+    background-color: #e5e7eb;
+    color: #1f2937;
+}
+
+form button[type="reset"]:hover {
+    background-color: #d1d5db;
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1f2937;
+    color: #ffffff;
+    margin-top: 40px;
+}
