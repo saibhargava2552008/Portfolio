@@ -1,174 +1,1762 @@
-/* ===== General Reset ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+    --primary:#00e5ff;
+    --secondary:#7b2ff7;
+    --dark:#08111f;
+    --dark2:#111827;
+    --white:#ffffff;
+    --text:#d6d6d6;
+    --glass:rgba(255,255,255,.08);
+    --shadow:0 15px 40px rgba(0,0,0,.35);
+    --radius:18px;
 }
 
-body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    line-height: 1.6;
-    color: #2d2d2d;
-    background-color: #f4f6f8;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-/* ===== Header ===== */
-header {
-    background-color: #1f2937;
-    color: #ffffff;
-    text-align: center;
-    padding: 30px 20px;
+html{
+    scroll-behavior:smooth;
 }
 
-header h1 {
-    margin-bottom: 15px;
-    font-size: 2rem;
+body{
+
+    background:linear-gradient(
+        -45deg,
+        #08111f,
+        #121c35,
+        #1f1147,
+        #0f3460
+    );
+
+    background-size:400% 400%;
+    animation:bgAnimation 15s ease infinite;
+    color:var(--white);
 }
 
-header button {
-    background-color: #374151;
-    border: none;
-    padding: 10px 18px;
-    margin: 0 5px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+/* Animated Background */
+
+@keyframes bgAnimation{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
 }
 
-header button:hover {
-    background-color: #4b5563;
+/* Scrollbar */
+
+::-webkit-scrollbar{
+    width:10px;
 }
 
-header button a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 500;
+::-webkit-scrollbar-track{
+    background:#111;
 }
 
-/* ===== Main Content ===== */
-main {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 0 20px;
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(var(--primary),var(--secondary));
+    border-radius:20px;
 }
 
-section {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 25px 30px;
-    margin-bottom: 25px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+::-webkit-scrollbar-thumb:hover{
+    background:#00ffff;
+}
+
+/* ================= HEADER ================= */
+
+header{
+
+    position:sticky;
+    top:0;
+    z-index:999;
+
+    backdrop-filter:blur(18px);
+
+    background:rgba(0,0,0,.35);
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 8%;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.3);
+
+}
+
+header h1{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    background:linear-gradient(90deg,#00e5ff,#7b2ff7);
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+/* Buttons */
+
+header button{
+
+    position:relative;
+
+    padding:12px 24px;
+
+    margin-left:10px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:linear-gradient(45deg,#00e5ff,#7b2ff7);
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    transition:.5s;
+
+    box-shadow:0 8px 20px rgba(0,229,255,.25);
+
+}
+
+header button a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    letter-spacing:.5px;
+
+}
+
+header button:hover{
+
+    transform:translateY(-6px) scale(1.08);
+
+    box-shadow:
+    0 0 25px cyan,
+    0 0 50px #7b2ff7;
+
+}
+
+/* Shine Animation */
+
+header button::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:40px;
+
+    height:180%;
+
+    background:rgba(255,255,255,.5);
+
+    top:-40%;
+
+    left:-90px;
+
+    transform:rotate(25deg);
+
+    transition:.7s;
+
+}
+
+header button:hover::before{
+
+    left:220px;
+
+}
+
+/* ================== MAIN ================= */
+
+main{
+
+    width:90%;
+
+    margin:auto;
+
+    padding-top:60px;
+
+}
+
+/* Sections */
+
+section{
+
+    background:var(--glass);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    border-radius:var(--radius);
+
+    padding:50px;
+
+    margin-bottom:60px;
+
+    box-shadow:var(--shadow);
+
+    transition:.6s;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+section:hover{
+
+    transform:translateY(-12px);
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.45),
+    0 0 30px rgba(0,229,255,.25);
+
+}
+
+section::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+
+    height:250px;
+
+    background:rgba(0,229,255,.08);
+
+    border-radius:50%;
+
+    top:-120px;
+
+    right:-100px;
+
+}
+
+/* Titles */
+
+section h1,
+section h2{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    font-size:2rem;
+
+    color:#00e5ff;
+
+    position:relative;
+
+}
+
+section h1::after,
+section h2::after{
+
+    content:"";
+
+    width:90px;
+
+    height:4px;
+
+    background:linear-gradient(to right,#00e5ff,#7b2ff7);
+
+    display:block;
+
+    margin:12px auto;
+
+    border-radius:20px;
+
+}
+
+/* Paragraph */
+
+p{
+
+    color:var(--text);
+
+    line-height:1.9;
+
+    font-size:1.05rem;
+
+}
+
+/* About Image */
+
+#About img{
+
+    display:block;
+
+    margin:30px auto;
+
+    width:220px;
+
+    height:220px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:6px solid #00e5ff;
+
+    box-shadow:
+    0 0 20px cyan,
+    0 0 40px #7b2ff7;
+
+    transition:.7s;
+
+    animation:floatImage 4s ease-in-out infinite;
+
+}
+
+#About img:hover{
+
+    transform:scale(1.1) rotate(5deg);
+
+    box-shadow:
+    0 0 35px cyan,
+    0 0 60px #7b2ff7;
+
+}
+
+@keyframes floatImage{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-18px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+/* ==========================================
+        ADVANCED PORTFOLIO CSS
+              PART 2 / 5
+==========================================*/
+
+
+/*=========================
+        ABOUT SECTION
+=========================*/
+
+#About{
+
+    text-align:center;
+
+}
+
+#About p{
+
+    margin-top:15px;
+
+    transition:.4s;
+
+}
+
+#About p:hover{
+
+    color:#00e5ff;
+
+    transform:translateX(10px);
+
+}
+
+/*=========================
+        SKILLS
+=========================*/
+
+#Skills ol{
+
+    list-style:none;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+    margin-top:35px;
+
+}
+
+#Skills li{
+
+    background:rgba(255,255,255,.07);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    text-align:center;
+
+    font-size:1.2rem;
+
+    font-weight:600;
+
+    transition:.45s cubic-bezier(.175,.885,.32,1.275);
+
+    cursor:pointer;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.25);
+
+}
+
+#Skills li::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    background:linear-gradient(
+        135deg,
+        rgba(0,229,255,.25),
+        rgba(123,47,247,.25)
+    );
+
+    top:0;
+
+    left:-100%;
+
+    transition:.5s;
+
+}
+
+#Skills li:hover::before{
+
+    left:0;
+
+}
+
+#Skills li:hover{
+
+    transform:translateY(-12px) scale(1.05);
+
+    color:white;
+
+    box-shadow:
+
+    0 0 18px cyan,
+
+    0 0 35px #7b2ff7;
+
+}
+
+#Skills li::after{
+
+    content:"★";
+
+    position:absolute;
+
+    top:15px;
+
+    right:18px;
+
+    font-size:18px;
+
+    color:#00e5ff;
+
+    opacity:.4;
+
+}
+
+/*=========================
+      PROJECTS SECTION
+=========================*/
+
+#Projects{
+
+    overflow-x:auto;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:35px;
+
+    overflow:hidden;
+
+    border-radius:15px;
+
+    box-shadow:0 20px 35px rgba(0,0,0,.35);
+
+}
+
+th{
+
+    background:linear-gradient(90deg,#00e5ff,#7b2ff7);
+
+    color:white;
+
+    padding:20px;
+
+    font-size:1.1rem;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+}
+
+td{
+
+    padding:22px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.05);
+
+    color:#ddd;
+
+    transition:.4s;
+
+}
+
+tr{
+
+    transition:.4s;
+
+}
+
+tr:hover{
+
+    background:rgba(255,255,255,.08);
+
+    transform:scale(1.01);
+
+}
+
+td:hover{
+
+    color:#00e5ff;
+
+}
+
+table a{
+
+    color:#00e5ff;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.4s;
+
+}
+
+table a:hover{
+
+    color:white;
+
+    text-shadow:
+
+    0 0 10px cyan,
+
+    0 0 25px cyan;
+
+}
+
+table,
+th,
+td{
+
+    border:1px solid rgba(255,255,255,.12);
+
+}
+
+/*=========================
+    SECTION HOVER GLOW
+=========================*/
+
+section:hover::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:18px;
+
+    box-shadow:
+
+    inset 0 0 20px rgba(0,229,255,.2),
+
+    0 0 40px rgba(0,229,255,.2);
+
+    pointer-events:none;
+
+}
+
+/*=========================
+      TEXT SELECTION
+=========================*/
+
+::selection{
+
+    background:#00e5ff;
+
+    color:#111;
+
+}
+/* ==========================================
+        ADVANCED PORTFOLIO CSS
+              PART 3 / 5
+         CONTACT FORM STYLING
+==========================================*/
+
+/*=========================
+      CONTACT SECTION
+=========================*/
+
+#Contact{
+    position:relative;
+}
+
+#Contact p{
+    text-align:center;
+    margin-bottom:35px;
+    color:#cfcfcf;
+}
+
+/*=========================
+        FORM
+=========================*/
+
+form{
+
+    max-width:700px;
+
+    margin:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+label{
+
+    color:#00e5ff;
+
+    font-weight:600;
+
+    letter-spacing:.5px;
+
+}
+
+b{
+
+    color:#fff;
+
+    margin-top:15px;
+
+}
+
+/*=========================
+      INPUT FIELDS
+=========================*/
+
+input[type="text"],
+input[type="email"]{
+
+    width:100%;
+
+    padding:15px 18px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.08);
+
+    color:white;
+
+    font-size:16px;
+
+    transition:.4s;
+
+    border:2px solid transparent;
+
+}
+
+input::placeholder{
+
+    color:#bbb;
+
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus{
+
+    border-color:#00e5ff;
+
+    background:rgba(255,255,255,.12);
+
+    box-shadow:
+
+        0 0 12px #00e5ff,
+
+        0 0 28px rgba(0,229,255,.3);
+
+    transform:scale(1.02);
+
+}
+
+/*=========================
+      RADIO BUTTONS
+=========================*/
+
+input[type="radio"]{
+
+    accent-color:#00e5ff;
+
+    transform:scale(1.2);
+
+    cursor:pointer;
+
+}
+
+input[type="checkbox"]{
+
+    accent-color:#7b2ff7;
+
+    transform:scale(1.2);
+
+    cursor:pointer;
+
+}
+
+input[type="radio"]:hover,
+input[type="checkbox"]:hover{
+
+    transform:scale(1.35);
+
+}
+
+/*=========================
+      SUBMIT BUTTONS
+=========================*/
+
+form button{
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:50px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.45s;
+
+    position:relative;
+
+    overflow:hidden;
+
+    color:white;
+
+    background:linear-gradient(
+        45deg,
+        #00e5ff,
+        #7b2ff7
+    );
+
+    box-shadow:0 10px 25px rgba(0,229,255,.3);
+
+}
+
+form button:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+
+    0 0 15px cyan,
+
+    0 0 35px #7b2ff7,
+
+    0 0 60px rgba(123,47,247,.5);
+
+}
+
+/* Ripple Animation */
+
+form button::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:0;
+
+    height:0;
+
+    background:rgba(255,255,255,.3);
+
+    border-radius:50%;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    transition:.6s;
+
+}
+
+form button:hover::before{
+
+    width:350px;
+
+    height:350px;
+
+}
+
+/*=========================
+        FORM HOVER
+=========================*/
+
+form:hover{
+
+    transform:scale(1.01);
+
+    transition:.5s;
+
+}
+
+/*=========================
+     INPUT ANIMATION
+=========================*/
+
+@keyframes glowPulse{
+
+    0%{
+
+        box-shadow:0 0 5px cyan;
+
+    }
+
+    50%{
+
+        box-shadow:
+
+        0 0 18px cyan,
+
+        0 0 35px #7b2ff7;
+
+    }
+
+    100%{
+
+        box-shadow:0 0 5px cyan;
+
+    }
+
+}
+
+input:focus{
+
+    animation:glowPulse 2s infinite;
+
+}
+
+/*=========================
+      CONTACT BOX GLOW
+=========================*/
+
+#Contact::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+
+    height:250px;
+
+    border-radius:50%;
+
+    background:rgba(123,47,247,.12);
+
+    bottom:-100px;
+
+    left:-80px;
+
+    filter:blur(20px);
+
+}
+
+/*=========================
+    SMOOTH LABEL EFFECT
+=========================*/
+
+label{
+
+    transition:.3s;
+
+}
+
+label:hover{
+
+    color:white;
+
+    letter-spacing:1px;
+
+}
+/* ==========================================
+        ADVANCED PORTFOLIO CSS
+              PART 4 / 5
+        FOOTER + RESPONSIVE DESIGN
+==========================================*/
+
+/*=========================
+         FOOTER
+=========================*/
+
+footer{
+
+    background:rgba(255,255,255,.06);
+
+    backdrop-filter:blur(20px);
+
+    border-top:1px solid rgba(255,255,255,.15);
+
+    padding:40px 8%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:25px;
+
+    margin-top:70px;
+
+    box-shadow:0 -10px 30px rgba(0,0,0,.3);
+
+}
+
+footer p{
+
+    color:white;
+
+    font-weight:600;
+
+}
+
+footer h5{
+
+    color:#00e5ff;
+
+    font-size:18px;
+
+}
+
+/*=========================
+      SOCIAL ICONS
+=========================*/
+
+footer span a{
+
+    display:inline-block;
+
+}
+
+footer img{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+    border:3px solid transparent;
+
+    cursor:pointer;
+
+}
+
+footer img:hover{
+
+    transform:translateY(-12px) scale(1.18) rotate(360deg);
+
+    border-color:#00e5ff;
+
+    box-shadow:
+
+        0 0 15px cyan,
+
+        0 0 30px cyan,
+
+        0 0 45px #7b2ff7;
+
+}
+
+/*=========================
+      FOOTER GLOW
+=========================*/
+
+footer::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+
+    height:300px;
+
+    background:rgba(0,229,255,.08);
+
+    border-radius:50%;
+
+    filter:blur(70px);
+
+    left:-150px;
+
+}
+
+/*=========================
+       LINKS
+=========================*/
+
+a{
+
+    transition:.4s;
+
+}
+
+a:hover{
+
+    color:#00e5ff;
+
+}
+
+/*=========================
+       BUTTON CLICK
+=========================*/
+
+button:active{
+
+    transform:scale(.92);
+
+}
+
+/*=========================
+     IMAGE SHADOW
+=========================*/
+
+img{
+
+    transition:.5s;
+
+}
+
+img:hover{
+
+    filter:brightness(1.08);
+
+}
+
+/*=========================
+       TABLE ANIMATION
+=========================*/
+
+table{
+
+    animation:tableFade 1.2s ease;
+
+}
+
+@keyframes tableFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(60px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================
+      SECTION ANIMATION
+=========================*/
+
+section{
+
+    animation:fadeUp 1s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(70px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================
+     RESPONSIVE TABLET
+=========================*/
+
+@media(max-width:992px){
+
+header{
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+header h1{
+
+    text-align:center;
+
+}
+
+header button{
+
+    margin:6px;
+
+}
+
+section{
+
+    padding:35px;
+
+}
+
+#Skills ol{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+/*=========================
+      MOBILE VIEW
+=========================*/
+
+@media(max-width:768px){
+
+header{
+
+    padding:20px;
+
+}
+
+header h1{
+
+    font-size:28px;
+
+}
+
+header button{
+
+    width:100%;
+
+}
+
+section{
+
+    padding:25px;
+
+}
+
+#About img{
+
+    width:180px;
+
+    height:180px;
+
+}
+
+#Skills ol{
+
+    grid-template-columns:1fr;
+
+}
+
+table{
+
+    font-size:14px;
+
+}
+
+td,th{
+
+    padding:14px;
+
+}
+
+footer{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+footer img{
+
+    width:50px;
+
+    height:50px;
+
+}
+
+}
+
+/*=========================
+     SMALL DEVICES
+=========================*/
+
+@media(max-width:480px){
+
+header h1{
+
+    font-size:22px;
+
 }
 
 section h1,
-section h2 {
-    color: #1f2937;
-    margin-bottom: 15px;
+section h2{
+
+    font-size:28px;
+
 }
 
-section p {
-    margin-bottom: 8px;
+p{
+
+    font-size:15px;
+
 }
 
-/* ===== About Section ===== */
-#About img {
-    display: block;
-    border-radius: 10px;
-    margin: 15px 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+form{
+
+    width:100%;
+
 }
 
-/* ===== Skills Section ===== */
-#Skills ol {
-    padding-left: 25px;
+input{
+
+    font-size:15px;
+
 }
 
-#Skills li {
-    margin-bottom: 5px;
+}
+/*==========================================
+        ADVANCED PORTFOLIO CSS
+             PART 5 / 5
+      FINAL PREMIUM EFFECTS
+==========================================*/
+
+/* =========================
+   ANIMATED BACKGROUND
+========================= */
+
+body::before,
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    width:350px;
+
+    height:350px;
+
+    border-radius:50%;
+
+    filter:blur(90px);
+
+    z-index:-1;
+
+    animation:blobMove 15s ease-in-out infinite;
+
 }
 
-/* ===== Projects Table ===== */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
+body::before{
+
+    background:rgba(0,229,255,.18);
+
+    top:-120px;
+
+    left:-120px;
+
 }
 
-th, td {
-    border: 1px solid #d1d5db;
-    padding: 10px 12px;
-    text-align: left;
+body::after{
+
+    background:rgba(123,47,247,.18);
+
+    bottom:-120px;
+
+    right:-120px;
+
+    animation-delay:5s;
+
 }
 
-th {
-    background-color: #1f2937;
-    color: #ffffff;
+@keyframes blobMove{
+
+    0%{
+
+        transform:translate(0,0) scale(1);
+
+    }
+
+    50%{
+
+        transform:translate(70px,40px) scale(1.2);
+
+    }
+
+    100%{
+
+        transform:translate(0,0) scale(1);
+
+    }
+
 }
 
-tr:nth-child(even) {
-    background-color: #f9fafb;
+/* =========================
+      HERO SHINE EFFECT
+========================= */
+
+section::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-120%;
+
+    left:-100%;
+
+    width:70%;
+
+    height:250%;
+
+    background:
+
+    linear-gradient(
+
+        rgba(255,255,255,0),
+
+        rgba(255,255,255,.12),
+
+        rgba(255,255,255,0)
+
+    );
+
+    transform:rotate(25deg);
+
+    transition:1.2s;
+
 }
 
-/* ===== Contact Form ===== */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 10px;
+section:hover::after{
+
+    left:160%;
+
 }
 
-form label {
-    font-weight: 500;
-    margin-right: 8px;
+/* =========================
+       NAV BUTTON GLOW
+========================= */
+
+header button{
+
+    position:relative;
+
 }
 
-form input[type="text"],
-form input[type="email"] {
-    padding: 8px 10px;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
-    width: 100%;
-    max-width: 350px;
+header button::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-3px;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        45deg,
+        cyan,
+        #7b2ff7,
+        cyan
+    );
+
+    z-index:-1;
+
+    opacity:0;
+
+    transition:.5s;
+
 }
 
-form input[type="radio"],
-form input[type="checkbox"] {
-    margin-right: 5px;
+header button:hover::after{
+
+    opacity:1;
+
+    filter:blur(10px);
+
 }
 
-form button {
-    align-self: flex-start;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 500;
-    margin-right: 10px;
+/* =========================
+      IMAGE GLOW PULSE
+========================= */
+
+#About img{
+
+    animation:
+
+        floatImage 4s ease-in-out infinite,
+
+        imageGlow 3s ease-in-out infinite;
+
 }
 
-form button[type="submit"] {
-    background-color: #2563eb;
-    color: #ffffff;
+@keyframes imageGlow{
+
+    0%{
+
+        box-shadow:
+        0 0 15px cyan;
+
+    }
+
+    50%{
+
+        box-shadow:
+        0 0 30px cyan,
+        0 0 60px #7b2ff7;
+
+    }
+
+    100%{
+
+        box-shadow:
+        0 0 15px cyan;
+
+    }
+
 }
 
-form button[type="submit"]:hover {
-    background-color: #1d4ed8;
+/* =========================
+     SKILL CARD SHINE
+========================= */
+
+#Skills li{
+
+    position:relative;
+
 }
 
-form button[type="reset"] {
-    background-color: #e5e7eb;
-    color: #1f2937;
+#Skills li span{
+
+    position:relative;
+
+    z-index:2;
+
 }
 
-form button[type="reset"]:hover {
-    background-color: #d1d5db;
+#Skills li:hover{
+
+    letter-spacing:1px;
+
 }
 
-/* ===== Footer ===== */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #1f2937;
-    color: #ffffff;
-    margin-top: 40px;
+/* =========================
+      PROJECT ROW EFFECT
+========================= */
+
+tr{
+
+    position:relative;
+
 }
+
+tr:hover td{
+
+    background:rgba(0,229,255,.08);
+
+}
+
+/* =========================
+     INPUT PLACEHOLDER
+========================= */
+
+input::placeholder{
+
+    transition:.4s;
+
+}
+
+input:focus::placeholder{
+
+    opacity:.35;
+
+    transform:translateX(8px);
+
+}
+
+/* =========================
+       BUTTON EFFECT
+========================= */
+
+form button{
+
+    letter-spacing:1px;
+
+}
+
+form button:hover{
+
+    letter-spacing:2px;
+
+}
+
+/* =========================
+      SOCIAL ICON PULSE
+========================= */
+
+footer img{
+
+    animation:socialPulse 4s infinite;
+
+}
+
+@keyframes socialPulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* =========================
+      GRADIENT HEADINGS
+========================= */
+
+h1,h2{
+
+    background:
+
+    linear-gradient(
+        90deg,
+        #00e5ff,
+        white,
+        #7b2ff7
+    );
+
+    background-size:250%;
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+    animation:textGradient 6s linear infinite;
+
+}
+
+@keyframes textGradient{
+
+    from{
+
+        background-position:0%;
+
+    }
+
+    to{
+
+        background-position:250%;
+
+    }
+
+}
+
+/* =========================
+     SECTION FLOAT EFFECT
+========================= */
+
+section{
+
+    animation:
+
+    fadeUp 1s ease,
+
+    floating 8s ease-in-out infinite;
+
+}
+
+@keyframes floating{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-6px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* =========================
+      GLASS BORDER
+========================= */
+
+section{
+
+    border:
+
+    1px solid rgba(255,255,255,.15);
+
+}
+
+/* =========================
+     SMOOTH EVERYTHING
+========================= */
+
+*{
+
+    transition:
+
+    background .3s,
+
+    color .3s,
+
+    transform .3s,
+
+    box-shadow .3s;
+
+}
+
+/* =========================
+      FOOTER COPYRIGHT
+========================= */
+
+footer p{
+
+    font-size:17px;
+
+    letter-spacing:.6px;
+
+}
+
+/* =========================
+      END OF FILE
+========================= */
